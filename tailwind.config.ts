@@ -32,6 +32,13 @@ export default {
 					purple: '#9b87f5',
 					blue: '#5bb0ff',
 				},
+				sadly: {
+					blue: '#38bdf8',
+					purple: '#a78bfa',
+					green: '#4ade80',
+					orange: '#fb923c',
+					pink: '#f472b6',
+				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -121,7 +128,8 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-lovable': 'linear-gradient(225deg, #ff5757 0%, #ff8c44 50%, #ffbd59 100%)',
-				'gradient-text': 'linear-gradient(90deg, #ff5757, #ffbd59)',
+				'gradient-sadly': 'linear-gradient(225deg, #38bdf8 0%, #a78bfa 50%, #f472b6 100%)',
+				'gradient-text': 'linear-gradient(90deg, #38bdf8, #f472b6)',
 				'gradient-dark': 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.9) 100%)',
 			}
 		}

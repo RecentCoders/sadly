@@ -7,8 +7,8 @@ const Navbar: React.FC = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-lg border-b border-white/10">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-gradient-lovable rounded-full animate-pulse-slow"></div>
-          <span className="font-bold text-xl text-white">lovable</span>
+          <div className="w-8 h-8 bg-gradient-sadly rounded-full animate-pulse-slow"></div>
+          <span className="font-bold text-xl text-white">sadly</span>
         </div>
         
         <div className="hidden md:flex items-center gap-8">
