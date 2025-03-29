@@ -8,6 +8,7 @@ import AIIntegration from "@/components/AIIntegration";
 import DeploymentGuide from "@/components/DeploymentGuide";
 import SadlyLogo from "@/components/SadlyLogo";
 import FeatureShowcase from "@/components/FeatureShowcase";
+import ApiDemo from "@/components/ApiDemo";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -20,6 +21,7 @@ const Index = () => {
       <Features />
       <AIIntegration />
       <FeatureShowcase />
+      <ApiDemo />
       <DeploymentGuide />
       <Footer />
     </div>

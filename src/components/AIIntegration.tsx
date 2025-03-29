@@ -23,14 +23,16 @@ const AIIntegration: React.FC = () => {
               </div>
               <h3 className="text-xl font-bold mb-4">GROQ Integration</h3>
               <div className="bg-[#1e1e1e] rounded-lg p-4 font-mono text-sm text-white/90 overflow-x-auto">
-                <pre>{`const groq = new Groq({ 
-  apiKey: process.env.GROQ_API_KEY 
+                <pre>{`import { Groq } from 'groq';
+
+const groq = new Groq({ 
+  apiKey: import.meta.env.VITE_GROQ_API_KEY 
 });
 
-async function generateCode() {
+async function generateCode(prompt) {
   const response = await groq.chat.completions.create({
     messages: [
-      { role: "user", content: "Generate a React component" }
+      { role: "user", content: prompt }
     ],
     model: "llama3-70b-8192",
     temperature: 0.5,
@@ -54,7 +56,7 @@ async function generateCode() {
               <div className="bg-[#1e1e1e] rounded-lg p-4 font-mono text-sm text-white/90 overflow-x-auto">
                 <pre>{`import cohere from 'cohere-ai';
 
-cohere.init(process.env.COHERE_API_KEY);
+cohere.init(import.meta.env.VITE_COHERE_API_KEY);
 
 async function generateEmbeddings(text) {
   const response = await cohere.embed({
