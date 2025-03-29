@@ -1,69 +1,204 @@
-# Welcome to your Lovable project
 
-## Project info
+<p align="center">
+  <img src="https://via.placeholder.com/150" alt="Sadly Logo" width="150" height="150" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);" />
+</p>
 
-**URL**: https://lovable.dev/projects/70d16a38-9ec6-4c80-ab19-e91fde17d6f2
+<h1 align="center">Sadly</h1>
+<p align="center">Idea to code in milliseconds</p>
 
-## How can I edit this code?
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#getting-started">Getting Started</a> •
+  <a href="#ai-integrations">AI Integrations</a> •
+  <a href="#deployment">Deployment</a> •
+  <a href="#environment-variables">Environment</a> •
+  <a href="#contributing">Contributing</a> •
+  <a href="#license">License</a>
+</p>
 
-There are several ways of editing your application.
+## Overview
 
-**Use Lovable**
+Sadly is an AI-powered full-stack code generator that transforms your ideas into functional code in milliseconds. Leveraging cutting-edge AI models from GROQ and Cohere, Sadly brings your concepts to life with minimal effort, providing a seamless development experience for developers, designers, and product teams alike.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/70d16a38-9ec6-4c80-ab19-e91fde17d6f2) and start prompting.
+## Features
 
-Changes made via Lovable will be committed automatically to this repo.
+### 🚀 Instant Code Generation
+Transform natural language descriptions into functional, well-structured code in real-time.
 
-**Use your preferred IDE**
+### 🎨 Modern UI Components
+Beautifully designed, responsive components using Tailwind CSS and shadcn/ui.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 🧠 Advanced AI Integrations
+Seamless integration with GROQ and Cohere AI for powerful language processing capabilities.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 📱 Responsive Design
+Mobile-first approach ensuring your applications look great on all devices.
 
-Follow these steps:
+### 🔄 Real-time Preview
+Watch your code come to life as you describe changes and additions.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 🔌 Backend Integration
+Connect to various backend services with ease, including database solutions.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 🚢 One-Click Deployment
+Deploy directly to Vercel with pre-configured settings for optimal performance.
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Getting Started
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/sadly.git
+
+# Navigate to the project directory
+cd sadly
+
+# Install dependencies
+npm install
+# or
+yarn install
+
+# Copy environment variables example
+cp .env.example .env.local
+
+# Start the development server
 npm run dev
+# or
+yarn dev
 ```
 
-**Edit a file directly in GitHub**
+Your application will be available at http://localhost:8080
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## AI Integrations
 
-**Use GitHub Codespaces**
+Sadly leverages two powerful AI services:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### GROQ Integration
 
-## What technologies are used for this project?
+GROQ provides lightning-fast inference capabilities for code generation and completion tasks. Our integration utilizes models like llama3-70b-8192 for optimal performance.
 
-This project is built with .
+```typescript
+const groq = new Groq({ 
+  apiKey: process.env.GROQ_API_KEY 
+});
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+async function generateCode() {
+  const response = await groq.chat.completions.create({
+    messages: [
+      { role: "user", content: "Generate a React component" }
+    ],
+    model: "llama3-70b-8192",
+    temperature: 0.5,
+    max_tokens: 8192
+  });
+  
+  return response.choices[0].message.content;
+}
+```
 
-## How can I deploy this project?
+### Cohere AI
 
-Simply open [Lovable](https://lovable.dev/projects/70d16a38-9ec6-4c80-ab19-e91fde17d6f2) and click on Share -> Publish.
+Cohere AI powers our semantic understanding capabilities, enabling advanced embeddings and text processing features.
 
-## I want to use a custom domain - is that possible?
+```typescript
+import cohere from 'cohere-ai';
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+cohere.init(process.env.COHERE_API_KEY);
+
+async function generateEmbeddings(text) {
+  const response = await cohere.embed({
+    texts: [text],
+    model: 'embed-english-v3.0'
+  });
+  
+  return response.body.embeddings;
+}
+```
+
+## Deployment
+
+Sadly comes pre-configured for deployment to Vercel. Simply connect your repository to Vercel and deploy:
+
+```bash
+# Deploy to Vercel
+vercel
+```
+
+Our `vercel.json` configuration handles all the necessary settings:
+
+```json
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
+    }
+  ],
+  "env": {
+    "GROQ_API_KEY": "@groq-api-key",
+    "COHERE_API_KEY": "@cohere-api-key"
+  }
+}
+```
+
+## Environment Variables
+
+Sadly requires the following environment variables:
+
+| Variable | Description |
+|----------|-------------|
+| `GROQ_API_KEY` | Your GROQ API key for code generation capabilities |
+| `COHERE_API_KEY` | Your Cohere API key for embeddings and semantic search |
+
+Copy `.env.example` to `.env.local` and fill in your API keys:
+
+```
+# GROQ API keys
+GROQ_API_KEY=your-groq-api-key-here
+
+# Cohere API keys
+COHERE_API_KEY=your-cohere-api-key-here
+```
+
+## Project Structure
+
+```
+sadly/
+├── public/            # Static assets
+├── src/
+│   ├── components/    # UI components
+│   ├── hooks/         # Custom React hooks
+│   ├── lib/           # Utility functions
+│   ├── pages/         # Page components
+│   ├── App.tsx        # Main application component
+│   └── main.tsx       # Application entry point
+├── .env.example       # Example environment variables
+├── vercel.json        # Vercel deployment configuration
+├── vite.config.ts     # Vite configuration
+└── tailwind.config.ts # Tailwind CSS configuration
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgements
+
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [GROQ](https://groq.com/)
+- [Cohere AI](https://cohere.ai/)
+- [Vercel](https://vercel.com/)
