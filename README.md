@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://via.placeholder.com/150" alt="Sadly Logo" width="150" height="150" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);" />
+  <img src="" alt="Sadly Logo" width="150" height="150" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);" />
 </p>
 
 <h1 align="center">Sadly</h1>
