@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="IMG_4079.png" alt="Sadly Logo" width="150" height="150" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);" />
+  <img src="IMG_4080.png" alt="Sadly Logo" width="150" height="150" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);" />
 </p>
 
 <h1 align="center">Sadly</h1>
